@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experience | Gauravi Limbole</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="experience-body">
+
+  <!-- Background Blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <!-- ✨ Background Dots -->
+  <div class="background-dots"></div>
+
+  <!-- Header -->
+  <section class="experience-header reveal">
+    <h1>My Experience</h1>
+    <p>Roles, internships, and impactful projects I’ve worked on.</p>
+  </section>
+
+  <!-- Experience Cards -->
+  <section class="experience-bubbles reveal">
+    <div class="bubble-card glow-card">
+      <div class="glow-background"></div>
+      <div class="glow-aura"></div>
+      <h3>⚡ Consumers Energy</h3>
+      <p>Audited .NET and Power BI apps for dev compliance, enhanced dashboards, and improved governance</p>
+    </div>
+
+    <div class="bubble-card glow-card">
+      <div class="glow-background"></div>
+      <div class="glow-aura"></div>
+      <h3>🌐 Dewpoint</h3>
+      <p>Reduced LogicMonitor alert noise by 45%, improved patch compliance, and supported infra teams </p>
+    </div>
+
+    <div class="bubble-card glow-card">
+      <div class="glow-background"></div>
+      <div class="glow-aura"></div>
+      <h3>💡 MSU Nursing</h3>
+      <p>Built a GPT chatbot, validated usability, and created engaging video-based learning content </p>
+    </div>
+  </section>
+
+  <p style="text-align:center; margin: 60px 0;">
+    <a href="index.html" class="title-link">← Back to Home</a>
+  </p>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll(".reveal");
+    function onScroll() {
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Blobs follow mouse
+    document.addEventListener("mousemove", e => {
+      document.querySelectorAll('.blob').forEach((b,i) => {
+        const speed = (i+1)*0.02;
+        b.style.transform = `translate(${e.clientX*speed}px, ${e.clientY*speed}px)`;
+      });
+    });
+  </script>
+  <div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<script src="cursor.js"></script>
+
+
+</body>
+</html>

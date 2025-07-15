@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Gauravi Limbole</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-card {
+      max-width: 500px;
+      margin: 100px auto 60px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      transition: 0.4s ease;
+    }
+
+    .contact-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-card h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .contact-card a {
+      color: #f2f4f3;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: #e63946;
+    }
+
+    .contact-icons {
+      font-size: 1.3rem;
+      margin-right: 8px;
+    }
+
+    .back-home {
+      text-align: center;
+      margin: 40px 0;
+    }
+  </style>
+</head>
+<body class="contact-body">
+
+  <!-- Blobs Background -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="background-dots"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-section reveal">
+    <div class="contact-card">
+      <h2>Let’s Connect</h2>
+      <p><span class="contact-icons">📧</span>Email: <a href="mailto:limboleg@msu.edu">limboleg@msu.edu</a></p>
+      <p><span class="contact-icons">🔗</span><a href="https://www.linkedin.com/in/gauravi-limbole" target="_blank">LinkedIn Profile</a></p>
+      <p><span class="contact-icons">🐙</span><a href="https://github.com/gauravi-limbole" target="_blank">GitHub Profile</a></p>
+      <p><span class="contact-icons">📄</span><a href="Gauravi_Limbole_Resume.pdf" download>Download Resume</a></p>
+    </div>
+  </section>
+
+  <!-- Back Home -->
+  <div class="back-home">
+    <a href="index.html" class="title-link">← Back to Home</a>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    function onScroll() {
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    document.addEventListener("mousemove", e => {
+      document.querySelectorAll('.blob').forEach((b, i) => {
+        const speed = (i + 1) * 0.02;
+        b.style.transform = `translate(${e.clientX * speed}px, ${e.clientY * speed}px)`;
+      });
+    });
+  </script>
+
+
+  <!-- Cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <script src="cursor.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Gauravi Limbole</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="projects-body">
+  <!-- Blobs Background -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="background-dots"></div>
+
+  <!-- Header -->
+  <section class="experience-header reveal">
+    <h1>My Projects</h1>
+    <p>Some of the tools and ideas I’ve brought to life.</p>
+  </section>
+
+  <!-- Project Cards -->
+  <section class="experience-bubbles reveal">
+    <div class="bubble-card hover-card">
+  <div class="glow-background"></div>
+  <div class="glow-aura"></div>
+  <h3>🔐 Secure Vault</h3>
+  <p>Built a secure, encrypted web vault with user authentication and protected notes.</p>
+  <div class="hover-overlay">
+    <h4>Tools</h4>
+    <span class="skill-badge">React</span>
+    <span class="skill-badge">Node.js</span>
+    <span class="skill-badge">MongoDB</span>
+    <span class="skill-badge">bcrypt</span>
+    <span class="skill-badge">crypto-js</span>
+  </div>
+</div>
+
+<div class="bubble-card hover-card">
+  <div class="glow-background"></div>
+  <div class="glow-aura"></div>
+  <h3>🤖 AI Academic Assistant</h3>
+  <p>Designed a GPT-4-based study tool that summarizes PDFs and answers questions in real time.</p>
+  <div class="hover-overlay">
+    <h4>Tools</h4>
+    <span class="skill-badge">OpenAI API</span>
+    <span class="skill-badge">PDF.js</span>
+    <span class="skill-badge">React</span>
+    <span class="skill-badge">Node.js</span>
+  </div>
+</div>
+
+<div class="bubble-card hover-card">
+  <div class="glow-background"></div>
+  <div class="glow-aura"></div>
+  <h3>🛰️ WattX <span style="font-size: 0.8em;">(HackDearborn 3 Winner)</span></h3>
+  <p>Created a decentralized energy trading platform using Fetch.AI and smart agent logic.</p>
+  <div class="hover-overlay">
+    <h4>Tools</h4>
+    <span class="skill-badge">Fetch.AI</span>
+    <span class="skill-badge">Python</span>
+    <span class="skill-badge">Simulation</span>
+    <span class="skill-badge">Multi-Agent Systems</span>
+  </div>
+</div>
+
+  </section>
+
+  <!-- Back Home -->
+  <div class="back-home">
+    <a href="index.html" class="title-link">← Back to Home</a>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    function onScroll() {
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    document.addEventListener("mousemove", e => {
+      document.querySelectorAll('.blob').forEach((b, i) => {
+        const speed = (i + 1) * 0.02;
+        b.style.transform = `translate(${e.clientX * speed}px, ${e.clientY * speed}px)`;
+      });
+    });
+  </script>
+
+  <!-- Cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <script src="cursor.js"></script>
+
+</body>
+</html>

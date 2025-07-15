@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gauravi Limbole | CS + Neuroscience Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Blobs Background -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="background-dots"></div>
+
+  <!-- Hero Section -->
+  <header class="hero fade-in">
+    <div class="glass-panel fade-in delay-1">
+      <h2>👋 Hi, I’m Gauravi</h2>
+      <p id="typed-text"></p>
+    </div>
+    <div class="title-row fade-in delay-2">
+      <a href="experience.html" class="title-link">Experience</a>
+      <a href="projects.html" class="title-link">Projects</a>
+      <a href="contact.html" class="title-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="content-section reveal">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>🧠 AI Scheduler Assistant</h3>
+        <p>A GPT-powered planner that prioritizes tasks using natural language.</p>
+        <div class="skills">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">OpenAI API</span>
+          <span class="skill-badge">React</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>🧬 MRI Tumor Classifier</h3>
+        <p>A deep learning model that detects and classifies tumors from MRI scans.</p>
+        <div class="skills">
+          <span class="skill-badge">TensorFlow</span>
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">Medical AI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>🤖 MSU Nursing Chatbot</h3>
+        <p>Deployed a GPT-powered assistant to help students and faculty streamline questions.</p>
+        <div class="skills">
+          <span class="skill-badge">LLMs</span>
+          <span class="skill-badge">Prompt Design</span>
+          <span class="skill-badge">NLP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="content-section reveal">
+    <h2>Let’s Connect</h2>
+    <p>Email: <a href="mailto:limboleg@msu.edu">limboleg@msu.edu</a></p>
+    <p><a href="https://www.linkedin.com/in/gauravi-limbole" target="_blank">LinkedIn →</a></p>
+    <p><a href="Gauravi_Limbole_Resume.pdf" download>📄 Download Resume</a></p>
+  </section>
+
+  <!-- Cursor Elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Scripts -->
+  <script>
+    const phrases = [
+      "Computer Science + Neuroscience at MSU 🧠",
+      "AI that adapts, learns, and empowers 💡",
+      "Building tools that connect people ✨"
+    ];
+    let current = 0, char = 0;
+    const typedText = document.getElementById("typed-text");
+    function type() {
+      if (char < phrases[current].length) {
+        typedText.innerHTML += phrases[current].charAt(char++);
+        setTimeout(type, 60);
+      } else {
+        setTimeout(() => {
+          typedText.innerHTML = "";
+          char = 0;
+          current = (current + 1) % phrases.length;
+          type();
+        }, 1600);
+      }
+    }
+    type();
+
+    const reveals = document.querySelectorAll(".reveal");
+    function onScroll() {
+      reveals.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    document.addEventListener("mousemove", e => {
+      document.querySelectorAll('.blob').forEach((b, i) => {
+        const speed = (i + 1) * 0.02;
+        b.style.transform = `translate(${e.clientX * speed}px, ${e.clientY * speed}px)`;
+      });
+    });
+  </script>
+
+  <script>
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+    const lerp = (a, b, n) => (1 - n) * a + n * b;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+    function animateRing() {
+      ringX = lerp(ringX, mouseX, 0.2);
+      ringY = lerp(ringY, mouseY, 0.2);
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+    document.addEventListener("mousedown", () => {
+      dot.classList.add("click");
+      ring.classList.add("click");
+    });
+    document.addEventListener("mouseup", () => {
+      dot.classList.remove("click");
+      ring.classList.remove("click");
+    });
+    document.querySelectorAll('a, .project-card, .title-link').forEach(el => {
+      el.addEventListener("mouseenter", () => ring.classList.add("hover"));
+      el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
+    });
+  </script>
+
+  <script src="cursor.js"></script>
+
+  <!-- Cursor elements -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+</body>
+</html>
